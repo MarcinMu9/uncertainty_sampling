@@ -2,8 +2,7 @@
 
 Spis treści:
 1. Etap4 - folder zawierający stan implementacji na etap 4
-  - wyniki0 - folder zawierający wyniki dla wstępnego eksperymentu (sprawdzającego funckjonalność metody)
-  - metoda.py - plik zawierający podstawową metodę, na której będą wykonywane eksperymenty (przy zmianie różnych parametrów)
+  - Estymator.py - plik zawierający estymator uczenia aktywnego bazującego na uncertainty sampling, na którym będą wykonywane eksperymenty
 2. Etap5 - folder zawierający stan implementacji na etap 5
   - Eksperyment(1, 2, 3) - foldery zawierające pliki do danego numeru eksperymentu
   - eksp(1, 2, 3).py - plik metoda.py skonfigurowany pod dany numer eksperymentu
