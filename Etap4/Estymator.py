@@ -1,11 +1,6 @@
 import numpy as np
 from sklearn.base import BaseEstimator
 
-from sklearn.naive_bayes import GaussianNB
-from sklearn.metrics import balanced_accuracy_score
-from sklearn.model_selection import RepeatedStratifiedKFold
-from sklearn.datasets import load_iris
-
 
 class EstymatorAL(BaseEstimator):
     def __init__(self, base_estimator, budget, strat):
@@ -47,21 +42,3 @@ class EstymatorAL(BaseEstimator):
     def predict(self, X):
         y_pred = self.estimator.predict(X)
         return y_pred
-
-
-iris = load_iris()
-X, y = iris.data, iris.target
-rskf = RepeatedStratifiedKFold(n_splits=2, n_repeats=5, random_state=1)
-kfold = rskf.split(X, y)
-scores = np.zeros(10)
-for k, (train, test) in enumerate(kfold):
-    clf = EstymatorAL(GaussianNB(), 15, 'lc')
-    clf.fit(X[train], y[train])
-    y_pred = clf.predict(X[test])
-    scores[k] = balanced_accuracy_score(y[test], y_pred)
-
-sc = np.mean(scores)
-print('balanced accuracy score: %.3f' % sc)
-
-
-
